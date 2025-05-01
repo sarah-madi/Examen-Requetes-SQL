@@ -9,7 +9,7 @@ select nom, prénom, annéeNaiss from artiste where annéeNaiss < 1950;
 ```
 
 **Explication**:  
-j’ai utilisé SELECT nom, prénom, annéeNaiss pour récupérer uniquement les colonnes du nom, prénom et année de naissance des artistes, car ce sont les informations demandées. J’ai choisi la table artiste avec FROM artiste parce qu’elle contient les données sur les artistes, y compris leur année de naissance. Pour filtrer les artistes nés avant 1950, j’ai ajouté WHERE annéeNaiss < 1950, ce qui limite les résultats aux lignes où l’année de naissance est strictement inférieure à 1950. J’ai terminé la requête avec un point-virgule ; car c’est obligatoire en SQL pour indiquer la fin de la requête.
+j’ai utilisé SELECT nom, prénom, annéeNaiss pour récupérer uniquement les colonnes du nom, prénom et année de naissance des artistes, car ce sont les informations demandées. J’ai choisi la table artiste avec FROM artiste parce qu’elle contient les données sur les artistes, avec leur année de naissance. Pour filtrer les artistes nés avant 1950, j’ai ajouté WHERE annéeNaiss < 1950, qui permet de limiter les résultats aux lignes où l’année de naissance est strictement inférieure à 1950. J’ai terminé la requête avec un point-virgule ; car c’est obligatoire en SQL pour indiquer la fin de la requête.
 
 **Capture d'écran**:  
 ![Résultat requête 1](exo1_sql.png)
@@ -24,7 +24,7 @@ select titre from film where genre='Drame';
 ```
 
 **Explication**:  
-j’ai utilisé SELECT titre pour récupérer uniquement la colonne titre des films, car la question demande seulement les titres. J’ai ciblé la table film avec FROM film parce qu’elle contient les informations sur les films, y compris leur genre. Pour ne récupérer que les drames, j’ai ajouté WHERE genre = 'Drame' pour filtrer les films dont le genre est exactement "Drame". Le point-virgule ; à la fin est essentiel pour que la requête soit valide
+j’ai utilisé SELECT titre pour récupérer uniquement la colonne titre des films puuisque la question demande seulement les titres. J’ai ciblé la table film avec FROM film parce qu’elle contient les informations sur les films et leur genre. Pour récupérer que les drames,j’ai ajouté WHERE genre = 'Drame' pour filtrer les films dont le genre est exactement "drame". Le point-virgule ; à la fin est essentiel pour que la requête soit valide
 
 **Capture d'écran**:  
 ![Résultat requête 2](exo2_sql.png)
@@ -35,11 +35,11 @@ j’ai utilisé SELECT titre pour récupérer uniquement la colonne titre des fi
 **Quels rôles a joué Bruce Willis**
 
 ```sql
-select nomRôle from role join artiste on role.idActeur = artiste.idArtiste where artiste.nom = 'Willis' and artiste.prénom = 'Bruce';
+select nomRôle from role join artiste on role.idActeur= artiste.idArtiste where artiste.nom= 'Willis' and artiste.prénom= 'Bruce';
 ```
 
 **Explication**:  
-Pour cette requête, j’ai utilisé SELECT nomRôle pour récupérer les noms des rôles joués par Bruce Willis, car c’est ce que la question demande. J’ai ciblé la table role avec FROM role car elle contient les informations sur les rôles. Comme je dois identifier Bruce Willis, j’ai joint la table artiste avec JOIN artiste ON role.idActeur = artiste.idArtiste pour relier les acteurs aux rôles via leur idArtiste. Pour m’assurer de ne récupérer que les rôles de Bruce Willis, j’ai ajouté WHERE artiste.nom = 'Willis' AND artiste.prénom = 'Bruce' pour filtrer sur son nom et prénom. Le point-virgule ; termine la requête, ce qui est nécessaire pour qu’elle soit exécutée sans erreur.
+Pour cette requête, j’ai utilisé SELECT nomRôle pour récupérer les noms des rôles joués par Bruce Willis puisque c’est ce que la question demande. J’ai ciblé la table role avec FROM role car elle contient les informations sur les rôles. Comme je dois identifier Bruce Willis, j’ai joint la table artiste avec JOIN artiste ON role.idActeur = artiste.idArtiste pour relier les acteurs aux rôles via leur idArtiste, et pour m’assurer de ne récupérer que les rôles de Bruce Willis, j’ai ajouté WHERE artiste.nom = 'Willis' AND artiste.prénom = 'Bruce' pour filtrer sur son nom et prénom. Le point-virgule ; termine la requête.
 
 **Capture d'écran**:  
 ![Résultat requête 3](exo3_sql.png)
@@ -50,11 +50,11 @@ Pour cette requête, j’ai utilisé SELECT nomRôle pour récupérer les noms d
 **Qui est le réalisateur de Memento**
 
 ```sql
-select artiste.nom, artiste.prénom from film join artiste on film.idRéalisateur = artiste.idArtiste where film.titre = 'Memento';
+select artiste.nom, artiste.prénom from film join artiste on film.idRéalisateur= artiste.idArtiste where film.titre = 'Memento';
 ```
 
 **Explication**:  
-J’ai utilisé SELECT artiste.nom, artiste.prénom pour récupérer le nom et le prénom du réalisateur, car c’est ce qui est demandé. J’ai ciblé la table film avec FROM film car elle contient les informations sur les films, y compris le titre et l’ID du réalisateur. Pour obtenir le nom du réalisateur, j’ai joint la table artiste avec JOIN artiste ON film.idRéalisateur = a.idArtiste pour relier l’ID du réalisateur au nom et prénom de l’artiste. J’ai filtré sur le film Memento avec WHERE film.titre = 'Memento'. Le point-virgule ; est indispensable à la fin pour que la requête soit valide.
+J’ai utilisé SELECT artiste.nom, artiste.prénom pour récupérer le nom et le prénom du réalisateur, car c’est ce qui est demandé. J’ai ciblé la table film avec FROM film car elle contient les informations sur les films, avec le titre et l’ID du réalisateur. Pour obtenir le nom du réalisateur, j’ai joint la table artiste avec JOIN artiste ON film.idRéalisateur = a.idArtiste pour relier l’ID du réalisateur au nom et prénom de l’artiste. J’ai filtré sur le film Memento avec WHERE film.titre = 'Memento'. Le point-virgule ; est indispensable à la fin pour que la requête soit valide.
 
 **Capture d'écran**:  
 ![Résultat requête 4](exo4_sql.png)
